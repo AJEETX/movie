@@ -1,0 +1,29 @@
+{
+  "name": "movies",
+  "version": "1.0.0",
+  "description": "all about movies",
+  "main": "webjet.js",
+  "scripts": {
+    "test": "async "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajeetx/webjetDemo.git"
+  },
+  "keywords": [
+    "nodejs",
+    "token",
+    "async"
+  ],
+  "author": "ajeet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ajeetx/webjetDemo/issues"
+  },
+  "homepage": "https://github.com/ajeetx/webjetDemo#readme",
+  "dependencies": {
+    "async": "^2.6.1",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.5"
+  }
+}
