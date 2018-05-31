@@ -21,6 +21,8 @@ Please install [![nodejs](https://img.shields.io/badge/node-js-blue.svg?style=pl
 
 The repository consists of a set of files including dependencies [node_modules folder].
 
+### Only Nodejs way: 
+
 Kindly run the webjet.js file from command-line interface/terminal with following command with admin privilege: 
 
 ```
@@ -31,6 +33,22 @@ If the message comes up as "listening on port 3000".
 The server has started successfully. All good.
 
 Please open a chrome browser and run "localhost:3000" url.
+
+### Nodejs plus Dotnet SelfHost webapi
+
+Please run the SelfHost console application.
+
+Kindly run the server.js file from command-line interface/terminal with following command with admin privilege: 
+
+```
+nodemon webjet.js
+```
+If the message comes up as "listening on port 3000". 
+
+The server has started successfully. All good.
+
+Please open a chrome browser and run "localhost:3000" url.
+
 
 Thanks...
 
