@@ -5,8 +5,8 @@ const request=require('request');
 const port=process.env.PORT || 3000;
 const bodyParser= require('body-parser');
 const tokenCode="sjd1HfkjU83ksdsm3802k";
-const cinema=[{id:1,title:'cine$11',price:11},{id:2,title:'cine$21',price:21}];
-const film=[{id:11,title:'film$12',price:12},{id:23,title:'film$2',price:2}];
+const cinema=[{id:13,title:'cine$11',price:11},{id:2,title:'cine$21',price:21}];
+const film=[{id:1,title:'film$12',price:12},{id:23,title:'film$2',price:2}];
 const users=[{  name:"webjet",   password:"webjet" }];
 
 app.use( bodyParser.json() );
