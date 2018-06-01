@@ -4,7 +4,7 @@
   "description": "all about movies",
   "main": "webjet.js",
   "scripts": {
-    "test": "async "
+    "test": "node webjet.js"
   },
   "repository": {
     "type": "git",
