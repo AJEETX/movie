@@ -1,7 +1,7 @@
 const express = require('express');
 const app=express();
 const async = require('async');
-const port=process.env.PORT || 9000;
+const port=process.env.PORT || 3000;
 const bodyParser= require('body-parser');
 const tokenCode="sjd1HfkjU83ksdsm3802k";
 const cinema=[{id:1,title:'cine$11',price:11},{id:2,title:'cine$21',price:21}];
@@ -119,4 +119,4 @@ app.post('/movie/:id',(req,res)=>{
   });
    
 
-app.listen(3000, function(){ console.log(`listening on port ${port}`);});
+app.listen(port, function(){ console.log(`listening on port ${port}`);});
