@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ajeetx/webjetDemo.git"
+    "url": "git+https://github.com/ajeetx/movie.git"
   },
   "keywords": [
     "nodejs",
@@ -18,9 +18,9 @@
   "author": "ajeet",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ajeetx/webjetDemo/issues"
+    "url": "https://github.com/ajeetx/movie/issues"
   },
-  "homepage": "https://github.com/ajeetx/webjetDemo#readme",
+  "homepage": "https://github.com/ajeetx/movie#readme",
   "dependencies": {
     "async": "^2.6.1",
     "express": "^4.16.3",
