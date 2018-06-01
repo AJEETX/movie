@@ -26,7 +26,7 @@ The repository consists of a set of files including dependencies [node_modules f
 Kindly run the webjet.js file from command-line interface/terminal with following command with admin privilege: 
 
 ```
-nodemon webjet.js
+> nodemon webjet.js
 ```
 If the message comes up as "listening on port 3000". 
 
@@ -41,7 +41,7 @@ Please run the SelfHost console application.
 Kindly run the server.js file from command-line interface/terminal with following command with admin privilege: 
 
 ```
-nodemon webjet.js
+> nodemon server.js
 ```
 If the message comes up as "listening on port 3000". 
 
