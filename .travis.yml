@@ -11,5 +11,3 @@ install:
   - npm install async express nodemon request --save
 before_script:
 - npm install
-script:
-- npm test
