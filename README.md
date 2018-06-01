@@ -3,7 +3,7 @@
 
  ![GitHub release](https://img.shields.io/github/release/ajeetx/movie.svg?style=for-the-badge) ![Maintenance](https://img.shields.io/maintenance/yes/2018.svg?style=for-the-badge)
 
-![Travis](https://img.shields.io/travis/AJEETX/movie.svg) |![GitHub Release Date](https://img.shields.io/github/release-date/ajeetx/movie.svg)|
+[![Build Status](https://travis-ci.org/AJEETX/movie.svg?branch=master)](https://travis-ci.org/AJEETX/movie) |![GitHub Release Date](https://img.shields.io/github/release-date/ajeetx/movie.svg)|
 | --- | --- |
 
 [![nodejs](https://img.shields.io/badge/node-js-blue.svg?style=plastic)](https://nodejs.org/en/) | ![GitHub language count](https://img.shields.io/github/languages/count/ajeetx/movie.svg) | ![GitHub top language](https://img.shields.io/github/languages/top/ajeetx/movie.svg) |![GitHub repo size in bytes](https://img.shields.io/github/repo-size/ajeetx/movie.svg) 
@@ -27,7 +27,7 @@ Kindly run the webjet.js file from command-line interface/terminal with followin
 
 ```
 > npm init          //initialise 
-> nodemon install async express nodemon request --save      // install dependencies
+> npm install async express nodemon request --save      // install dependencies
 > nodemon webjet.js     // go
 ```
 If the message comes up as "listening on port 3000". 
@@ -44,7 +44,7 @@ Kindly run the server.js file from command-line interface/terminal with followin
 
 ```
 > npm init          //initialise 
-> nodemon install async express nodemon request --save      // install dependencies
+> npm install async express nodemon request --save      // install dependencies
 > nodemon server.js     // go
 ```
 If the message comes up as "listening on port 3000". 
