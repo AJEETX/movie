@@ -57,7 +57,9 @@ Thanks...
 -	search cheapest movie
 -	search movie by id 
 ### Support or Contact
-
+```
+Guys, I hope we get the hang of it :)
+```
 Having any trouble? Check out our [documentation](https://github.com/AJEETX/movie/blob/master/README.md) or [contact support](mailto:ajeetkumar@email.com) and we’ll help you sort it out.
 
 
