@@ -5,15 +5,13 @@ const request=require('request');
 const port=process.env.PORT || 3000;
 const bodyParser= require('body-parser');
 const tokenCode="sjd1HfkjU83ksdsm3802k";
-const cinema=[{id:13,title:'cine$11',price:11},{id:2,title:'cine$21',price:21}];
-const film=[{id:1,title:'film$12',price:12},{id:23,title:'film$2',price:2}];
 const users=[{  name:"webjet",   password:"webjet" }];
 
 app.use( bodyParser.json() );
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static('./'));
+app.use(express.static('./public'));
 
 app.get('/', (req,res)=>{
     res.sendFile('index.html');
@@ -76,7 +74,8 @@ app.post('/movie',(req,res)=>{
     async.parallel({
       cine: function(callback) {
         request('http://localhost:9876/api/cinemaworld/movies', function (error, response, body) {
-            if (!error && response.statusCode == 200) {
+          if (!error && response.statusCode == 200) {
+              // console.log(body)
                 callback(null, body);
             } else {
               callback(true, {});
@@ -85,26 +84,44 @@ app.post('/movie',(req,res)=>{
       },
         film: function(callback) {
           request('http://localhost:9876/api/filmworld/movies', function (error, response, body) {
-              if (!error && response.statusCode == 200) {
-                  callback(null, body);
+                if (!error && response.statusCode == 200) {
+              // console.log(body)
+              callback(null, body);
               } else {
-                callback(true, {});
+                callback(true, 'film');
               }
           });
         }
-        }, function(err, results) {console.log(results);
-        let cheapestCinema=results.cine;console.log(cheapestCinema);
-        let cheapestFilm=results.film;console.log(cheapestFilm);
-        let movie;
-       if(cheapestCinema.price>cheapestFilm.price){
-       movie=cheapestFilm;
-       }else{
-         movie=cheapestCinema;
-       }
-
+      }, function(err, results) {//console.log(results);
+        let cheapestCinema=results.cine;//console.log(cheapestCinema);
+        let cheapestFilm=results.film;//console.log(cheapestFilm);
+        let mov=JSON.parse(cheapestCinema);//console.log(mov)
+        let mincinemaprice
+        let cineElement
+        mov.results.forEach(element=>{
+          if(mincinemaprice){
+            if(element.Price<mincinemaprice){
+              mincinemaprice=element.Price
+              cineElement=element
+            }
+        }else{
+          mincinemaprice=element.Price;
+        }
+        });
+        mov=JSON.parse(cheapestFilm);//console.log(mov)
+        let minfilmprice
+        let filmElement
+        mov.results.forEach(element=>{
+          if(minfilmprice){
+            if(element.Price<minfilmprice){
+              minfilmprice=element.Price;
+              filmElement=element;
+            }
+        }  
+      });
+        cheapest=mincinemaprice>minfilmprice?minfilmprice:mincinemaprice;
         res.writeHead(200, {"Content-Type": "application/json"});
-        console.log(movie);
-       res.end(JSON.stringify(movie));
+       res.end(JSON.stringify(cheapest));
       });
     });
 
@@ -113,11 +130,11 @@ app.post('/movie/:id',(req,res)=>{
   const Id=req.params.id;
   console.log('Id = '+Id);
   async.parallel({
-      ci:function(callback) {
+      cine:function(callback) {
         request('http://localhost:9876/api/cinemaworld/movies/'+Id, function (error, response, body) {
           if (!error && response.statusCode == 200) {
-            if(body){
-              movie=body;
+            if(body==null){
+              movie=body;console.log(body)
             }
               callback(null, body);
           } else {
@@ -138,15 +155,17 @@ app.post('/movie/:id',(req,res)=>{
         });
       }
     }, function(err, results) {
-      res.writeHead(200, {"Content-Type": "application/json"});
       if(err){            
         return console.log(err);
       }
-      if(movie){
-        console.log(movie);
-        }else{
-          console.log('not found');
-        }
+      let cinema=JSON.parse(results.cine)
+      console.log(cinema.results)
+      
+      let film=JSON.parse(results.film)
+      console.log(film.results)
+      movie=cinema.results?cinema.results:film.results?film.results:null
+      res.writeHead(200, {"Content-Type": "application/json"});
+
       res.end(JSON.stringify(movie));
     });
   });

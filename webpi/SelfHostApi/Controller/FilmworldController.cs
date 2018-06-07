@@ -1,9 +1,4 @@
-﻿using SelfHostApi.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SelfHostApi.Domain;
 using System.Web.Http;
 
 namespace SelfHostApi.Controller
@@ -11,20 +6,25 @@ namespace SelfHostApi.Controller
     [RoutePrefix("api/filmworld")]
     public class FilmController : ApiController
     {
-        List<Movie> movies = new List<Movie> {
-            new Movie { Id = 123, Title = "Film$22", Price = 22 },
-            new Movie { Id = 27, Title = "Film$4", Price = 4 },
-            new Movie { Id = 13, Title = "Film$1", Price = 1 }
-        };
+        private readonly IFilmService _IFilmService;
+        public FilmController(IFilmService IFilmService)
+        {
+            _IFilmService = IFilmService;
+        }
+
         [Route("movies")]
         public IHttpActionResult GetMovies()
         {
-            return Ok(movies.Min(m=>(m.Price)));
+            System.Console.WriteLine("GET films");
+            var films = _IFilmService.GetFilms();
+            return Ok(new { results = films });
         }
         [Route("movies/{id}")]
         public IHttpActionResult GetMovie(int id)
         {
-            return Ok(movies.Where(m => m.Id == id).FirstOrDefault());
+            System.Console.WriteLine("GET film by Id="+id);
+            var film = _IFilmService.GetFilm(id);
+            return Ok(new { results = film });
         }
     }
 }

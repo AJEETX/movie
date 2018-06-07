@@ -1,5 +1,4 @@
-# movies
-
+# movie world
 
  ![GitHub release](https://img.shields.io/github/release/ajeetx/movie.svg?style=for-the-badge) ![Maintenance](https://img.shields.io/maintenance/yes/2018.svg?style=for-the-badge)
 
@@ -10,37 +9,32 @@
 | ---          | ---        | ---      | ---        | 
 
 ---------------------------------------
-## Introduction
+## ### Nodejs plus Dotnet SelfHost webapi
 
 ```
-simple nodejs app with simple token authentication with async.parallel.   
+simple nodejs plus self-hosted webapi with token authentication with async.parallel.   
 ```
 ## Setup/Configuration
 
-Please install [![nodejs](https://img.shields.io/badge/node-js-blue.svg?style=plastic)](https://nodejs.org/en/) in order to run the application.
+> Kindly close/download the repository
 
-The repository consists of a set of files including dependencies [node_modules folder].
+> There 2 parts: 
+    | application type | description |
+    | --- | ---|
+    | Nodejs app | User interactive application |
+    | Self-hosted webapi | backend processing |
 
-### Only Nodejs way: 
+> Please install [![nodejs](https://img.shields.io/badge/node-js-blue.svg?style=plastic)](https://nodejs.org/en/) in order to run the Nodejs application.
 
-Kindly run the webjet.js file from command-line interface/terminal with following command with admin privilege: 
+> Please install .Net Framework 4.5 in order to run Self-hosted webapi.
 
-```
-> npm init          //initialise 
-> npm install async express nodemon request --save      // install dependencies
-> nodemon webjet.js     // go
-```
-If the message comes up as "listening on port 3000". 
+> Either run the SelfHost application exe from app bin folder with admin privilege or run through Visual Studio
 
-The server has started successfully. All good.
+> Kindly open VSCode to the folder location, open VSCode command-line interface/terminal.
 
-Please open a chrome browser and run "localhost:3000" url.
+> The commandline terminal points to the same location where server.js file is located.
 
-### Nodejs plus Dotnet SelfHost webapi
-
-Please run the SelfHost console application with admin privilege:
-
-Kindly run the server.js file from command-line interface/terminal with following command with admin privilege: 
+> On VSCode terminal Run the server.js file from with following command with admin privilege: 
 
 ```
 > npm init          //initialise 
@@ -60,9 +54,10 @@ Thanks...
 -	simple token-based authentication
 -	search cheapest movie
 -	search movie by id 
+
 ### Support or Contact
 ```
-Guys, I hope we get the hang of it :)
+happy coding  :)
 ```
 Having any trouble? Check out our [documentation](https://github.com/AJEETX/movie/blob/master/README.md) or [contact support](mailto:ajeetkumar@email.com) and we’ll help you sort it out.
 

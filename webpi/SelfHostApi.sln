@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHostApi", "SelfHostApi\SelfHostApi.csproj", "{0033DD28-EE75-4387-BBF5-3E2DBA5DBD9B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHostApi.Test", "SelfHostApi.Test\SelfHostApi.Test.csproj", "{74FFDC17-D939-4BD3-BC68-B8AAF17444A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0033DD28-EE75-4387-BBF5-3E2DBA5DBD9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0033DD28-EE75-4387-BBF5-3E2DBA5DBD9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0033DD28-EE75-4387-BBF5-3E2DBA5DBD9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74FFDC17-D939-4BD3-BC68-B8AAF17444A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74FFDC17-D939-4BD3-BC68-B8AAF17444A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74FFDC17-D939-4BD3-BC68-B8AAF17444A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74FFDC17-D939-4BD3-BC68-B8AAF17444A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

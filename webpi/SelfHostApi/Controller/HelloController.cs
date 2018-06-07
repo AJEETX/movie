@@ -13,6 +13,7 @@ namespace SelfHostApi.Controller
         [Route("test")]
         public IHttpActionResult GetTest()
         {
+            System.Console.WriteLine("GET TEST");
             return Content(System.Net.HttpStatusCode.OK, "SelfHostedServer");
         }
     }

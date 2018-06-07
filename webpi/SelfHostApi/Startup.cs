@@ -9,6 +9,7 @@ using System.Web.Http.Cors;
 using System.Web.Http.ExceptionHandling;
 using System.Web.Http.Routing;
 using System.Web.Http.SelfHost;
+using Unity.AspNet.WebApi;
 
 namespace SelfHostApi
 {
@@ -19,7 +20,8 @@ namespace SelfHostApi
         public void Configuration(IAppBuilder app)
         {
             var config = new HttpSelfHostConfiguration(baseAddress);
-            config.MapHttpAttributeRoutes();
+            config.DependencyResolver = new UnityDependencyResolver(UnityConfig.Container);
+                config.MapHttpAttributeRoutes();
             config.Routes.MapHttpRoute("axd", "{resource}.axd/{*pathInfo}", null, null, new StopRoutingHandler());
 
             config.Routes.MapHttpRoute(
