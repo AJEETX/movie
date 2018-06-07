@@ -19,6 +19,7 @@ simple nodejs plus self-hosted webapi with token authentication with async.paral
 > Kindly close/download the repository
 
 > There 2 parts: 
+
 | application type | description |
 | --- | ---|
 | Nodejs app | User interactive application |
