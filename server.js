@@ -5,7 +5,6 @@ const request=require('request');
 const port=process.env.PORT || 3000;
 const bodyParser= require('body-parser');
 const tokenCode="sjd1HfkjU83ksdsm3802k";
-const users=[{  name:"webjet",   password:"webjet" }];
 
 app.use( bodyParser.json() );
 
@@ -17,113 +16,65 @@ app.get('/', (req,res)=>{
     res.sendFile('index.html');
 });
 
-app.post('/login',(req,res)=>{
-    var message;
-    for(var user of users){
-      if(user.name!=req.body.name){
-          message="Wrong Name";
-      }else{
-          if(user.password!=req.body.password){
-              message="Wrong Password";
-              break;
-          }
-          else{
-            var token=tokenCode;
-			      console.log("Login Successful. Token ="+token );			  
-              message="Login Successful";
-              break;
-          }
-      }
-    }
-    if(token){
-        res.status(200).json({
-            message,
-            token
-        });
-    }
-    else{
-        res.status(403).json({
-            message
-        });
-    }
-});
+const routes=require('./public/route')
+app.use('/login',routes)
 
-app.use((req, res, next)=>{
-        console.log(req.body);
-        var token = req.body.token || req.query.token || req.headers['x-access-token'];
-        if(token){
-            if(token!=tokenCode){
-              res.status(403).json({
-                message:"Wrong Token"
-              });
-            }
-            else{
-              req.decoded=tokenCode;
-              next();
-            }
-        }
-        else{
-          res.status(403).json({
-            message:"No Token"
-          });
-        }
-});
-
-app.post('/movie',(req,res)=>{
-  let cheapest;
-    async.parallel({
-      cine: function(callback) {
-        request('http://localhost:9876/api/cinemaworld/movies', function (error, response, body) {
-          if (!error && response.statusCode == 200) {
-              // console.log(body)
-                callback(null, body);
-            } else {
-              callback(true, {});
-            }
-        });
-      },
-        film: function(callback) {
-          request('http://localhost:9876/api/filmworld/movies', function (error, response, body) {
-                if (!error && response.statusCode == 200) {
-              // console.log(body)
-              callback(null, body);
-              } else {
-                callback(true, 'film');
-              }
-          });
-        }
-      }, function(err, results) {//console.log(results);
-        let cheapestCinema=results.cine;//console.log(cheapestCinema);
-        let cheapestFilm=results.film;//console.log(cheapestFilm);
-        let mov=JSON.parse(cheapestCinema);//console.log(mov)
-        let mincinemaprice
-        let cineElement
-        mov.results.forEach(element=>{
-          if(mincinemaprice){
-            if(element.Price<mincinemaprice){
-              mincinemaprice=element.Price
-              cineElement=element
-            }
-        }else{
-          mincinemaprice=element.Price;
-        }
-        });
-        mov=JSON.parse(cheapestFilm);//console.log(mov)
-        let minfilmprice
-        let filmElement
-        mov.results.forEach(element=>{
-          if(minfilmprice){
-            if(element.Price<minfilmprice){
-              minfilmprice=element.Price;
-              filmElement=element;
-            }
-        }  
-      });
-        cheapest=mincinemaprice>minfilmprice?minfilmprice:mincinemaprice;
-        res.writeHead(200, {"Content-Type": "application/json"});
-       res.end(JSON.stringify(cheapest));
-      });
-    });
+app.use('/movie',routes);
+// app.post('/movie',(req,res)=>{
+//   let cheapest;
+//     async.parallel({
+//       cine: function(callback) {
+//         request('http://localhost:9876/api/cinemaworld/movies', function (error, response, body) {
+//           if (!error && response.statusCode == 200) {
+//               // console.log(body)
+//                 callback(null, body);
+//             } else {
+//               callback(true, {});
+//             }
+//         });
+//       },
+//         film: function(callback) {
+//           request('http://localhost:9876/api/filmworld/movies', function (error, response, body) {
+//                 if (!error && response.statusCode == 200) {
+//               // console.log(body)
+//               callback(null, body);
+//               } else {
+//                 callback(true, 'film');
+//               }
+//           });
+//         }
+//       }, function(err, results) {//console.log(results);
+//         let cheapestCinema=results.cine;//console.log(cheapestCinema);
+//         let cheapestFilm=results.film;//console.log(cheapestFilm);
+//         let mov=JSON.parse(cheapestCinema);//console.log(mov)
+//         let mincinemaprice
+//         let cineElement
+//         mov.results.forEach(element=>{
+//           if(mincinemaprice){
+//             if(element.Price<mincinemaprice){
+//               mincinemaprice=element.Price
+//               cineElement=element
+//             }
+//         }else{
+//           mincinemaprice=element.Price;
+//         }
+//         });
+//         mov=JSON.parse(cheapestFilm);//console.log(mov)
+//         let minfilmprice
+//         let filmElement
+//         mov.results.forEach(element=>{
+//           if(minfilmprice){
+//             if(element.Price<minfilmprice){
+//               minfilmprice=element.Price;
+//               filmElement=element;
+//             }
+//         }  
+//       });
+//         cheapest=mincinemaprice>minfilmprice?minfilmprice:mincinemaprice;
+//         res.writeHead(200, {"Content-Type": "application/json"});
+//        res.end(JSON.stringify(cheapest));
+//       });
+//     });
 
 app.post('/movie/:id',(req,res)=>{
   let movie;

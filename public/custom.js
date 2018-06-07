@@ -14,7 +14,7 @@ auth= function(){
             document.getElementById("headline").innerHTML=JSON.parse(xhttp.responseText).message;
         }
     };
-    xhttp.open("POST", basURL+"login", true);
+    xhttp.open("POST", basURL+"login/secret/", true);
     xhttp.setRequestHeader("Content-type", 'application/json; charset=UTF-8');
     xhttp.send(JSON.stringify(data));
 }
