@@ -19,10 +19,10 @@ simple nodejs plus self-hosted webapi with token authentication with async.paral
 > Kindly close/download the repository
 
 > There 2 parts: 
-    | application type | description |
-    | --- | ---|
-    | Nodejs app | User interactive application |
-    | Self-hosted webapi | backend processing |
+| application type | description |
+| --- | ---|
+| Nodejs app | User interactive application |
+| Self-hosted webapi | backend processing |
 
 > Please install [![nodejs](https://img.shields.io/badge/node-js-blue.svg?style=plastic)](https://nodejs.org/en/) in order to run the Nodejs application.
 
