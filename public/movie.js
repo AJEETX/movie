@@ -26,7 +26,9 @@ router.post('/',(req,res)=>{
                 }
             });
           }
-        }, function(err, results) {console.log(results);
+
+        }, 
+        function(err, results) {console.log(results);
           let cheapestCinema=results.cine;//console.log(cheapestCinema);
           let cheapestFilm=results.film;//console.log(cheapestFilm);
           let mov=JSON.parse(cheapestCinema);//console.log(mov)
