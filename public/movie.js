@@ -28,7 +28,7 @@ router.post('/',(req,res)=>{
           }
 
         }, 
-        function(err, results) {console.log(results);
+        function(err, results) {//console.log(results);
           let cheapestCinema=results.cine;//console.log(cheapestCinema);
           let cheapestFilm=results.film;//console.log(cheapestFilm);
           let mov=JSON.parse(cheapestCinema);//console.log(mov)
@@ -36,26 +36,32 @@ router.post('/',(req,res)=>{
           let cineElement
           mov.results.forEach(element=>{
             if(mincinemaprice){
-              if(element.Price<mincinemaprice){
-                mincinemaprice=element.Price
+              console.log(element.Price)
+              if(parseInt(element.Price)<parseInt(mincinemaprice)){
+                  mincinemaprice=element.Price
+                  cineElement=element
+                }
+              }else{
+                mincinemaprice=element.Price;//console.log(element.Price)
                 cineElement=element
               }
-          }else{
-            mincinemaprice=element.Price;
-          }
           });
           mov=JSON.parse(cheapestFilm);//console.log(mov)
           let minfilmprice
           let filmElement
           mov.results.forEach(element=>{
             if(minfilmprice){
-              if(element.Price<minfilmprice){
-                minfilmprice=element.Price;
-                filmElement=element;
+                if(element.Price<minfilmprice){
+                  minfilmprice=element.Price;
+                  filmElement=element;
+                  }
+                }
+                  else{
+                    minfilmprice=element.Price;//console.log(element.Price)
+                    filmElement=element
               }
-          }  
-        });
-          cheapest=mincinemaprice>minfilmprice?minfilmprice:mincinemaprice;
+              });
+          cheapest=mincinemaprice<minfilmprice?cineElement:filmElement;
           res.writeHead(200, {"Content-Type": "application/json"});
          res.end(JSON.stringify(cheapest));
         });
