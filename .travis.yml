@@ -1,13 +1,2 @@
-language: node_js
-sudo: false
-node_js:
-  - "stable"
-cache:
-directories:
-  - "node_modules"
-before_install:
-- npm install -g node
-install:
-  - npm install async express nodemon request --save
-before_script:
-- npm install
+language: csharp
+solution: webapi/selfhostapi.sln
