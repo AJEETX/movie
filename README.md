@@ -18,7 +18,7 @@ nodejs with self-hosted webapi with token authentication with async.parallel.
 
 > Kindly close/download the repository
 
-> There 2 parts: 
+> There are 2 parts: 
 
 | application type | description |
 | --- | ---|
