@@ -11,3 +11,13 @@ tr:nth-child(even) {background: #ddd}
 .movieData{
     display: inline-block;
 }
+button{
+    padding:4px;
+    margin:5px 10px;
+    border:1px solid black;
+}
+.userinfo{
+    border: 1px solid red;
+    padding: 4px 6px;   
+    width:50%;
+}

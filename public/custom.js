@@ -8,6 +8,7 @@ auth= function(){
             document.getElementById("movie").style.display="none";
             document.getElementById("display-movie").style.display="block";
             var response = JSON.parse(xhttp.responseText);
+            document.getElementById("loading").innerHTML = response.message;
             document.getElementById("token-display").innerHTML = response.token;
         }
         if(xhttp.readyState==4 && xhttp.status==403){

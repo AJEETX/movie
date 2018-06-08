@@ -5,14 +5,14 @@
 [![Build Status](https://travis-ci.org/AJEETX/movie.svg?branch=master)](https://travis-ci.org/AJEETX/movie) |![GitHub Release Date](https://img.shields.io/github/release-date/ajeetx/movie.svg)|
 | --- | --- |
 
-[![nodejs](https://img.shields.io/badge/node-js-blue.svg?style=plastic)](https://nodejs.org/en/) | ![GitHub language count](https://img.shields.io/github/languages/count/ajeetx/movie.svg) | ![GitHub top language](https://img.shields.io/github/languages/top/ajeetx/movie.svg) |![GitHub repo size in bytes](https://img.shields.io/github/repo-size/ajeetx/movie.svg) 
-| ---          | ---        | ---      | ---        | 
+| [![.Net Framework](https://img.shields.io/badge/DotNet-4.5-blue.svg?style=plastic)](https://www.microsoft.com/en-au/download/details.aspx?id=30653)| [![nodejs](https://img.shields.io/badge/node-js-blue.svg?style=plastic)](https://nodejs.org/en/) | ![GitHub language count](https://img.shields.io/github/languages/count/ajeetx/movie.svg) | ![GitHub top language](https://img.shields.io/github/languages/top/ajeetx/movie.svg) |![GitHub repo size in bytes](https://img.shields.io/github/repo-size/ajeetx/movie.svg) 
+| ---          | ---        | ---      | ---  | ---        | 
 
 ---------------------------------------
 ## ### Nodejs plus Dotnet SelfHost webapi
 
 ```
-simple nodejs plus self-hosted webapi with token authentication with async.parallel.   
+nodejs with self-hosted webapi with token authentication with async.parallel.   
 ```
 ## Setup/Configuration
 
@@ -65,4 +65,3 @@ Having any trouble? Check out our [documentation](https://github.com/AJEETX/movi
 
 [![HitCount](http://hits.dwyl.io/ajeetx/movieyy/projects/1.svg)](http://hits.dwyl.io/ajeetx/movie/projects/1) | ![GitHub contributors](https://img.shields.io/github/contributors/ajeetx/movie.svg?style=plastic)|![license](https://img.shields.io/github/license/ajeetx/movie.svg?style=plastic)|
  | --- | --- | ---|
-

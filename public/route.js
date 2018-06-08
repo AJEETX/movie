@@ -40,6 +40,7 @@ router.use((req, res, next)=>{
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
     if(token){
         if(token!=tokenCode){
+            console.log(token)
           res.status(403).json({
             message:"Wrong Token"
           });

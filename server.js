@@ -4,7 +4,6 @@ const async = require('async');
 const request=require('request');
 const port=process.env.PORT || 3000;
 const bodyParser= require('body-parser');
-const tokenCode="sjd1HfkjU83ksdsm3802k";
 
 app.use( bodyParser.json() );
 
