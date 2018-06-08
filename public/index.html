@@ -29,16 +29,22 @@
 </div>
         <h3 id="headline" >please enter username and password as 'webjet'</h3>
         <div>
+                <p><span id="datetime"></span></p>
+            
     <form id="movie">
-                <div class="userinfo">
+                <div class="">
                 <label for="username">Username</label>
-                <input type="text" class="userinfo" id="username" placeholder="Username">
+            </div>
+                <div class="">
+                    <input type="text" class="userinfo" id="username" placeholder="Username">
                 </div>
-                <div class="userinfo">
+                <div class="">
                     <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Password">
                 </div>
-                <button type="button" onclick="auth()">Authorize</button>
+                <div class="">
+                    <input type="password" class="userinfo" id="password" placeholder="Password">
+            </div>
+            <button type="button" onclick="auth()">Authorize</button>
             </form>
             <div id="loading"></div>
 			<div id="display-movie" style="display:none" >

@@ -20,12 +20,17 @@ auth= function(){
     xhttp.send(JSON.stringify(data));
 }
 getCheapest= function(){
+    var start=performance.now();
     console.log("cheapest movie");
+    document.getElementById("loading").innerHTML="loading ...";
     var xhttp = new XMLHttpRequest();
     data={token:document.getElementById("token-display").innerHTML}
     console.log(data);
     xhttp.onreadystatechange = function() {
         if (xhttp.readyState==4 && xhttp.status==200) {
+            var end=performance.now();
+            var timetaken=end-start;
+            document.getElementById("loading").innerHTML="Response Time (milli seconds) "+timetaken;
             document.getElementById("list").style.display="block";
             document.getElementById("list").innerHTML=xhttp.responseText;	
         }
@@ -39,12 +44,16 @@ getCheapest= function(){
 }
 getById= function(id){
     console.log(" movie by id");
+    var start=performance.now();    
+    document.getElementById("loading").innerHTML="loading ...";
     var xhttp = new XMLHttpRequest();
     data={token:document.getElementById("token-display").innerHTML}
     console.log(data);
     xhttp.onreadystatechange = function() {
         if (xhttp.readyState==4 && xhttp.status==200) {
-            document.getElementById("list").style.display="block";
+            var end=performance.now();
+            var timetaken=end-start;
+            document.getElementById("loading").innerHTML="Response Time (milli seconds) "+timetaken;            document.getElementById("list").style.display="block";
             document.getElementById("list").innerHTML=xhttp.responseText;	
         }
         if(xhttp.readyState==4 && xhttp.status==403){
