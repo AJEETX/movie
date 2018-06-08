@@ -1,2 +1,2 @@
 language: csharp
-solution: webapi/SelfHostApi.sln
+solution: ../webapi/SelfHostApi.sln
