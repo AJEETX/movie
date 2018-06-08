@@ -27,7 +27,7 @@ nodejs with self-hosted webapi with token authentication with async.parallel.
 
 > Please install [![nodejs](https://img.shields.io/badge/node-js-blue.svg?style=plastic)](https://nodejs.org/en/) in order to run the Nodejs application.
 
-> Please install .Net Framework 4.5 in order to run Self-hosted webapi.
+> Please install [![.Net Framework](https://img.shields.io/badge/DotNet-4.5-blue.svg?style=plastic)](https://www.microsoft.com/en-au/download/details.aspx?id=30653) in order to run Self-hosted webapi.
 
 > Either run the SelfHost application exe from app bin folder with admin privilege or run through Visual Studio
 
