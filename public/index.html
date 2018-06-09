@@ -52,15 +52,28 @@
             <button type="button" onclick="auth()">Authorize</button>
             </form>
 			<div id="display-movie" style="display:none" >
-				<span="token">Token</span>
-				<div id="token-display">
-				</div>
-				<br />
+				<span="token">Token: </span>
+				<span id="token-display">
+                </span>
 				
                 <div id="click-fn"></div>
-                <button type="button" class="btn btn-primary" onclick="getCheapest()">Search Cheapest Movie</button>
-                <button type="button" class="btn btn-primary" onclick="getById(4)">Get Movie by Id ( id=4)</button>
+                <button type="button" class="btn btn-primary" onclick="getCheapest()">Cheapest Movie</button>
+                <span>
+                <button type="button" class="btn btn-primary" onclick="getById()"> Movie by Id</button>
+                Select Id<select id="movielist">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                </select>
+            </span>
             </div>
+            <p id="demo"></p>
+
             <div id="list">
                 </div>
         </div>

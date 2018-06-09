@@ -21,6 +21,7 @@ auth= function(){
 }
 getCheapest= function(){
     document.getElementById("list").innerHTML="";
+    document.getElementById("demo").innerHTML="";
     var start=performance.now();
     console.log("cheapest movie");
     document.getElementById("loading").innerHTML="loading ...";
@@ -43,7 +44,12 @@ getCheapest= function(){
     xhttp.setRequestHeader("Content-type", 'application/json; charset=UTF-8');
     xhttp.send(JSON.stringify(data));
 }
-getById= function(id){
+getById= function(){
+
+    document.getElementById("demo").innerHTML="";
+    var id=document.getElementById("movielist").value;
+    document.getElementById("demo").innerHTML="Selected Id =" + id;
+    
     document.getElementById("list").innerHTML="";
     console.log(" movie by id");
     var start=performance.now();    

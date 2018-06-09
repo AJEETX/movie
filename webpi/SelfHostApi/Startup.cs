@@ -16,6 +16,7 @@ namespace SelfHostApi
     public class Startup
     {
         string baseAddress = "http://localhost:999/";
+        public const string key = "sjd1HfkjU83ksdsm3802k";
 
         public void Configuration(IAppBuilder app)
         {
