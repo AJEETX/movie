@@ -4,7 +4,7 @@ auth= function(){
     data={name:document.getElementById("username").value,password:document.getElementById("password").value}
     xhttp.onreadystatechange = function() {
         if (xhttp.readyState==4 && xhttp.status==200) {                       
-            document.getElementById("headline").innerHTML="Movies";
+            document.getElementById("headline").innerHTML="";
             document.getElementById("movie").style.display="none";
             document.getElementById("display-movie").style.display="block";
             var response = JSON.parse(xhttp.responseText);
@@ -31,7 +31,7 @@ getCheapest= function(){
         if (xhttp.readyState==4 && xhttp.status==200) {
             var end=performance.now();
             var timetaken=end-start;
-            document.getElementById("loading").innerHTML="Response Time (milli seconds) "+timetaken;
+            document.getElementById("loading").innerHTML="Response Time (milli seconds) = "+timetaken;
             document.getElementById("list").style.display="block";
             document.getElementById("list").innerHTML=xhttp.responseText;	
         }
@@ -55,7 +55,7 @@ getById= function(id){
         if (xhttp.readyState==4 && xhttp.status==200) {
             var end=performance.now();
             var timetaken=end-start;
-            document.getElementById("loading").innerHTML="Response Time (milli seconds) "+timetaken;            document.getElementById("list").style.display="block";
+            document.getElementById("loading").innerHTML="Response Time (milli seconds) = "+timetaken;            document.getElementById("list").style.display="block";
             document.getElementById("list").innerHTML=xhttp.responseText;	
         }
         if(xhttp.readyState==4 && xhttp.status==403){

@@ -11,6 +11,9 @@ tr:nth-child(even) {background: #ddd}
 .movieData{
     display: inline-block;
 }
+#headline,#loading{
+    color: red;
+}
 button{
     padding:4px;
     margin:5px 10px;
@@ -19,5 +22,20 @@ button{
 .userinfo{
     border: 1px solid red;
     padding: 4px 6px;   
-    width:50%;
+}
+.top-display{
+    margin: 20px;
+    background:#fff;
+    border: 2px solid #ddd;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+}
+#page{
+    text-align: center;
+}#list{
+    color: blue;
+}
+#token-display{
+    color: green;
 }

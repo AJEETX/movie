@@ -9,7 +9,9 @@
         <link rel="stylesheet" href="site.css">
     </head>
     <body>
-<div>
+<div id="page">
+    <div class="top-display">
+        <p>Movie Search Data</p>
         <div class="movieData">
                 <div>
                     <label>Cinemaworld</label> 
@@ -18,46 +20,50 @@
                     <div class="movieData" id="showCinema"></div>
                 </div>
             </div>
-            <div class="movieData">
-                    <div>
-                        <label>Filmworld</label> 
-                    </div>
-                    <div>
-                        <div class="movieData" id="showFilm"></div>
-                    </div>
+        <div class="movieData">
+                <div>
+                    <label>Filmworld</label> 
+                </div>
+                <div>
+                    <div class="movieData" id="showFilm"></div>
+                </div>
+        </div>
+    </div>        
+        <div class="top-display">
+            Search movies from above data
             </div>
-</div>
-        <h3 id="headline" >please enter username and password as 'webjet'</h3>
-        <div>
+                <div class="top-display">
                 <p><span id="datetime"></span></p>
-            
-    <form id="movie">
+            <div id="loading"></div>              
+                <span id="headline" >please enter username and password as 'webjet'</span>
+        <form id="movie">
                 <div class="">
                 <label for="username">Username</label>
-            </div>
-                <div class="">
-                    <input type="text" class="userinfo" id="username" placeholder="Username">
                 </div>
-                <div class="">
-                    <label for="password">Password</label>
+                    <div class="">
+                        <input type="text" class="userinfo" id="username" placeholder="Username">
+                    </div>
+                    <div class="">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="">
+                        <input type="password" class="userinfo" id="password" placeholder="Password">
                 </div>
-                <div class="">
-                    <input type="password" class="userinfo" id="password" placeholder="Password">
-            </div>
             <button type="button" onclick="auth()">Authorize</button>
             </form>
-            <div id="loading"></div>
 			<div id="display-movie" style="display:none" >
 				<label for="token">Token</label>
 				<div id="token-display">
 				</div>
 				<br />
-				<div id="list">
-                </div>
+				
                 <div id="click-fn"></div>
-                <button type="button" class="btn btn-primary" onclick="getCheapest()">Cheapest</button>
-                <button type="button" class="btn btn-primary" onclick="getById(4)">Get Movie ( id=4)</button>
-			</div>
+                <button type="button" class="btn btn-primary" onclick="getCheapest()">Search Cheapest Movie</button>
+                <button type="button" class="btn btn-primary" onclick="getById(4)">Get Movie by Id ( id=4)</button>
+            </div>
+            <div id="list">
+                </div>
         </div>
+    </div>
     </body>
 </html>
