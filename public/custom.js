@@ -33,7 +33,7 @@ getCheapest= function(){
             var timetaken=end-start;
             document.getElementById("loading").innerHTML="Response Time (milli seconds) = "+timetaken;
             document.getElementById("list").style.display="block";
-            document.getElementById("list").innerHTML=xhttp.responseText;	
+            document.getElementById("list").innerHTML="Cheapest movie: " +xhttp.responseText;	
         }
         if(xhttp.readyState==4 && xhttp.status==403){
             document.getElementById("list").innerHTML=JSON.parse(xhttp.responseText).message;
@@ -56,7 +56,7 @@ getById= function(id){
             var end=performance.now();
             var timetaken=end-start;
             document.getElementById("loading").innerHTML="Response Time (milli seconds) = "+timetaken;            document.getElementById("list").style.display="block";
-            document.getElementById("list").innerHTML=xhttp.responseText;	
+            document.getElementById("list").innerHTML="Searched Movie: "+xhttp.responseText;	
         }
         if(xhttp.readyState==4 && xhttp.status==403){
             document.getElementById("list").innerHTML=JSON.parse(xhttp.responseText).message;

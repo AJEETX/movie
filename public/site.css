@@ -39,3 +39,6 @@ button{
 #token-display{
     color: green;
 }
+#list{
+    display: none;
+}
