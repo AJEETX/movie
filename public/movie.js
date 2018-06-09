@@ -41,6 +41,7 @@ router.post('/',(req,res)=>{
               }
           }else{
             mincinemaprice=element.Price;
+            cineElement=element;
           }
           });
           mov=JSON.parse(cheapestFilm);//console.log(mov)
@@ -52,9 +53,14 @@ router.post('/',(req,res)=>{
                 minfilmprice=element.Price;
                 filmElement=element;
               }
+              else{
+                minfilmprice=element.Price;
+                filmElement=element;
+              }
           }  
         });
-          cheapest=mincinemaprice>minfilmprice?minfilmprice:mincinemaprice;
+        console.log(filmElement);
+          cheapest=mincinemaprice>minfilmprice?filmElement:cineElement;
           res.writeHead(200, {"Content-Type": "application/json"});
          res.end(JSON.stringify(cheapest));
         });

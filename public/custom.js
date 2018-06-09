@@ -20,6 +20,7 @@ auth= function(){
     xhttp.send(JSON.stringify(data));
 }
 getCheapest= function(){
+    document.getElementById("list").innerHTML="";
     var start=performance.now();
     console.log("cheapest movie");
     document.getElementById("loading").innerHTML="loading ...";
@@ -43,6 +44,7 @@ getCheapest= function(){
     xhttp.send(JSON.stringify(data));
 }
 getById= function(id){
+    document.getElementById("list").innerHTML="";
     console.log(" movie by id");
     var start=performance.now();    
     document.getElementById("loading").innerHTML="loading ...";
