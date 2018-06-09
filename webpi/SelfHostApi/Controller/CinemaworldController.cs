@@ -1,5 +1,4 @@
 ﻿using SelfHostApi.Domain;
-using System.Linq;
 using System.Web.Http;
 
 namespace SelfHostApi.Controller
@@ -14,18 +13,34 @@ namespace SelfHostApi.Controller
         }
 
         [Route("movies")]
-        public IHttpActionResult GetMovies()
+        public IHttpActionResult GetMovies( string key)
         {
+            if (Startup.key != key) return BadRequest("Incorrect key");
             System.Console.WriteLine("GET cinemas");
-            var cinemas = _ICinemaService.GetCinemas();
-            return Ok(new { results = cinemas });
+            try
+            {
+                var cinemas = _ICinemaService.GetCinemas();
+                return Ok(new { results = cinemas });
+            }
+            catch (System.Exception)
+            {
+                return InternalServerError();
+            }
         }
         [Route("movies/{id}")]
-        public IHttpActionResult GetMovie(int id)
+        public IHttpActionResult GetMovie(string key,int id)
         {
-            System.Console.WriteLine("GET cinema by Id="+id);
-            var cinema = _ICinemaService.GetCinema(id);
-            return Ok(new { results = cinema });
+            if (Startup.key != key) return BadRequest("Incorrect key");
+            System.Console.WriteLine("GET cinema by Id=" + id);
+            try
+            {
+                var cinema = _ICinemaService.GetCinema(id);
+                return Ok(new { results = cinema });
+            }
+            catch (System.Exception)
+            {
+                return InternalServerError();
+            }
         }
     }
 }

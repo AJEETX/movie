@@ -5,9 +5,10 @@ const request=require('request');
 
 router.post('/',(req,res)=>{
     let cheapest;
+    var token=req.body.token;
       async.parallel({
         cine: function(callback) {
-          request('http://localhost:9876/api/cinemaworld/movies', function (error, response, body) {
+          request.get('http://localhost:9876/api/cinemaworld/movies?key='+token, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 // console.log(body)
                   callback(null, body);
@@ -17,7 +18,7 @@ router.post('/',(req,res)=>{
           });
         },
           film: function(callback) {
-            request('http://localhost:9876/api/filmworld/movies', function (error, response, body) {
+            request.get('http://localhost:9876/api/filmworld/movies?key='+token, function (error, response, body) {
                   if (!error && response.statusCode == 200) {
                 // console.log(body)
                 callback(null, body);
@@ -27,7 +28,13 @@ router.post('/',(req,res)=>{
             });
           }
         }, 
-        function(err, results) {console.log(results);
+        function(err, results) {
+          if(err) {
+            return console.log(err);
+            // res.writeHead(500, {"Content-Type": "application/json"});
+            // res.end(JSON.stringify({'Application':err}));            
+          }
+          console.log(results);
           let cheapestCinema=results.cine;//console.log(cheapestCinema);
           let cheapestFilm=results.film;//console.log(cheapestFilm);
           let mov=JSON.parse(cheapestCinema);//console.log(mov)
@@ -59,7 +66,6 @@ router.post('/',(req,res)=>{
               }
           }  
         });
-        console.log(filmElement);
           cheapest=mincinemaprice>minfilmprice?filmElement:cineElement;
           res.writeHead(200, {"Content-Type": "application/json"});
          res.end(JSON.stringify(cheapest));
@@ -68,13 +74,15 @@ router.post('/',(req,res)=>{
 router.post('/:id',(req,res)=>{
         let movie;
         const Id=req.params.id;
+        var token=req.body.token;
+        console.log(token);
         console.log('Id = '+Id);
         async.parallel({
             cine:function(callback) {
-              request('http://localhost:9876/api/cinemaworld/movies/'+Id, function (error, response, body) {
+              request('http://localhost:9876/api/cinemaworld/movies/'+Id+"?key="+token, function (error, response, body) {
                 if (!error && response.statusCode == 200) {
                   if(body==null){
-                    movie=body;console.log(body)
+                    movie=body;//console.log(body)
                   }
                     callback(null, body);
                 } else {
@@ -83,7 +91,7 @@ router.post('/:id',(req,res)=>{
             });
           },
             film: function(callback) {
-              request('http://localhost:9876/api/filmworld/movies/'+Id, function (error, response, body) {
+              request('http://localhost:9876/api/filmworld/movies/'+Id+"?key="+token, function (error, response, body) {
                   if (!error && response.statusCode == 200) {
                     if(body){
                       movie=body;
@@ -95,17 +103,15 @@ router.post('/:id',(req,res)=>{
               });
             }
           }, function(err, results) {
-            if(err){            
+            if(err) {
               return console.log(err);
+              // res.writeHead(500, {"Content-Type": "application/json"});
+              // res.end(JSON.stringify({'Server':err}));            
             }
             let cinema=JSON.parse(results.cine)
-            console.log(cinema.results)
-            
             let film=JSON.parse(results.film)
-            console.log(film.results)
             movie=cinema.results?cinema.results:film.results?film.results:null
             res.writeHead(200, {"Content-Type": "application/json"});
-      
             res.end(JSON.stringify(movie));
           });
         });

@@ -13,18 +13,34 @@ namespace SelfHostApi.Controller
         }
 
         [Route("movies")]
-        public IHttpActionResult GetMovies()
+        public IHttpActionResult GetMovies( string key)
         {
+            if (Startup.key != key) return BadRequest("Incorrect key");
             System.Console.WriteLine("GET films");
-            var films = _IFilmService.GetFilms();
-            return Ok(new { results = films });
+            try
+            {
+                var films = _IFilmService.GetFilms();
+                return Ok(new { results = films });
+            }
+            catch (System.Exception)
+            {
+                return InternalServerError();
+            }
         }
         [Route("movies/{id}")]
-        public IHttpActionResult GetMovie(int id)
+        public IHttpActionResult GetMovie(string key, int id)
         {
+            if (Startup.key != key) return BadRequest("Incorrect key");
             System.Console.WriteLine("GET film by Id="+id);
-            var film = _IFilmService.GetFilm(id);
-            return Ok(new { results = film });
+            try
+            {
+                var film = _IFilmService.GetFilm(id);
+                return Ok(new { results = film });
+            }
+            catch (System.Exception)
+            {
+                return InternalServerError();
+            }
         }
     }
 }

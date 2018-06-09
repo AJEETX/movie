@@ -17,6 +17,9 @@ auth= function(){
     };
     xhttp.open("POST", basURL+"login", true);
     xhttp.setRequestHeader("Content-type", 'application/json; charset=UTF-8');
+    xhttp.onerror = function () {
+        console.log("** An error occurred during the transaction");
+      };
     xhttp.send(JSON.stringify(data));
 }
 getCheapest= function(){
@@ -30,22 +33,34 @@ getCheapest= function(){
     console.log(data);
     xhttp.onreadystatechange = function() {
         if (xhttp.readyState==4 && xhttp.status==200) {
+            document.getElementById("list").style.display="block";
             var end=performance.now();
             var timetaken=end-start;
             document.getElementById("loading").innerHTML="Response Time (milli seconds) = "+timetaken;
-            document.getElementById("list").style.display="block";
             document.getElementById("list").innerHTML="Cheapest movie: " +xhttp.responseText;	
         }
         if(xhttp.readyState==4 && xhttp.status==403){
-            document.getElementById("list").innerHTML=JSON.parse(xhttp.responseText).message;
+            document.getElementById("loading").innerHTML="";
+            document.getElementById("loading").innerHTML=JSON.parse(xhttp.responseText).message;
+        }
+        else if(xhttp.readyState==4 && xhttp.status==500){
+            document.getElementById("loading").innerHTML="";
+            document.getElementById("loading").innerHTML=xhttp.statusText;
         }
     };
     xhttp.open("POST", basURL+"movie", true);
     xhttp.setRequestHeader("Content-type", 'application/json; charset=UTF-8');
+    xhttp.timeout =6000;
+    xhttp.onerror = function () {
+        document.getElementById("loading").innerHTML=" Timeout !!!";
+      };
+    xhttp.ontimeout=function (e) {
+        document.getElementById("loading").innerHTML=" Timeout !!!";
+      };
     xhttp.send(JSON.stringify(data));
 }
 getById= function(){
-
+    document.getElementById("loading").innerHTML="";
     document.getElementById("demo").innerHTML="";
     var id=document.getElementById("movielist").value;
     document.getElementById("demo").innerHTML="Selected Id =" + id;
@@ -65,11 +80,23 @@ getById= function(){
             document.getElementById("list").innerHTML="Searched Movie: "+xhttp.responseText;	
         }
         if(xhttp.readyState==4 && xhttp.status==403){
-            document.getElementById("list").innerHTML=JSON.parse(xhttp.responseText).message;
+            document.getElementById("loading").innerHTML="";
+            document.getElementById("loading").innerHTML=xhttp.responseText;
+        }
+        else if(xhttp.readyState==4 && xhttp.status==500){
+            document.getElementById("loading").innerHTML="";
+            document.getElementById("loading").innerHTML=xhttp.statusText;
         }
     };
     xhttp.open("POST", basURL+"movie/"+id, true);
     xhttp.setRequestHeader("Content-type", 'application/json; charset=UTF-8');
+    xhttp.timeout =6000;
+    xhttp.onerror = function () {
+        document.getElementById("loading").innerHTML=" Timeout !!!";
+      };
+    xhttp.ontimeout=function (e) {
+        document.getElementById("loading").innerHTML=" Timeout !!!";
+      };
     xhttp.send(JSON.stringify(data));
 }
 function loadJSON(moviesData,callback) {   
