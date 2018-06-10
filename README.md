@@ -63,5 +63,5 @@ happy coding  :)
 Having any trouble? Check out our [documentation](https://github.com/AJEETX/movie/blob/master/README.md) or [contact support](mailto:ajeetkumar@email.com) and we’ll help you sort it out.
 
 
-[![HitCount](http://hits.dwyl.io/ajeetx/movieyy/projects/1.svg)](http://hits.dwyl.io/ajeetx/movie/projects/1) | ![GitHub contributors](https://img.shields.io/github/contributors/ajeetx/movie.svg?style=plastic)|![license](https://img.shields.io/github/license/ajeetx/movie.svg?style=plastic)|
+[![HitCount](http://hits.dwyl.io/ajeetx/movie/projects/1.svg)](http://hits.dwyl.io/ajeetx/movie/projects/1) | ![GitHub contributors](https://img.shields.io/github/contributors/ajeetx/movie.svg?style=plastic)|![license](https://img.shields.io/github/license/ajeetx/movie.svg?style=plastic)|
  | --- | --- | ---|
