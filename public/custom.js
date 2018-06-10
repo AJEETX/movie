@@ -22,11 +22,17 @@ auth= function(){
       };
     xhttp.send(JSON.stringify(data));
 }
-getCheapest= function(){
+
+getMovies= function(id){
+    let url="movie";
+    if(id) {
+        var id=document.getElementById("movielist").value;
+        document.getElementById("demo").innerHTML="Selected Id =" + id;
+        url=url+ "\\"+id
+    }
     document.getElementById("list").innerHTML="";
     document.getElementById("demo").innerHTML="";
     var start=performance.now();
-    console.log("cheapest movie");
     document.getElementById("loading").innerHTML="loading ...";
     var xhttp = new XMLHttpRequest();
     data={token:document.getElementById("token-display").innerHTML}
@@ -48,47 +54,7 @@ getCheapest= function(){
             document.getElementById("loading").innerHTML=xhttp.statusText;
         }
     };
-    xhttp.open("POST", basURL+"movie", true);
-    xhttp.setRequestHeader("Content-type", 'application/json; charset=UTF-8');
-    xhttp.timeout =6000;
-    xhttp.onerror = function () {
-        document.getElementById("loading").innerHTML=" Timeout !!!";
-      };
-    xhttp.ontimeout=function (e) {
-        document.getElementById("loading").innerHTML=" Timeout !!!";
-      };
-    xhttp.send(JSON.stringify(data));
-}
-getById= function(){
-    document.getElementById("loading").innerHTML="";
-    document.getElementById("demo").innerHTML="";
-    var id=document.getElementById("movielist").value;
-    document.getElementById("demo").innerHTML="Selected Id =" + id;
-    
-    document.getElementById("list").innerHTML="";
-    console.log(" movie by id");
-    var start=performance.now();    
-    document.getElementById("loading").innerHTML="loading ...";
-    var xhttp = new XMLHttpRequest();
-    data={token:document.getElementById("token-display").innerHTML}
-    console.log(data);
-    xhttp.onreadystatechange = function() {
-        if (xhttp.readyState==4 && xhttp.status==200) {
-            var end=performance.now();
-            var timetaken=end-start;
-            document.getElementById("loading").innerHTML="Response Time (milli seconds) = "+timetaken;            document.getElementById("list").style.display="block";
-            document.getElementById("list").innerHTML="Searched Movie: "+xhttp.responseText;	
-        }
-        if(xhttp.readyState==4 && xhttp.status==403){
-            document.getElementById("loading").innerHTML="";
-            document.getElementById("loading").innerHTML=xhttp.responseText;
-        }
-        else if(xhttp.readyState==4 && xhttp.status==500){
-            document.getElementById("loading").innerHTML="";
-            document.getElementById("loading").innerHTML=xhttp.statusText;
-        }
-    };
-    xhttp.open("POST", basURL+"movie/"+id, true);
+    xhttp.open("POST", basURL+url, true);
     xhttp.setRequestHeader("Content-type", 'application/json; charset=UTF-8');
     xhttp.timeout =6000;
     xhttp.onerror = function () {
