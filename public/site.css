@@ -20,7 +20,7 @@ tr:nth-child(even) {background: #ddd}
 button{
     padding:4px;
     margin:5px 10px;
-    border:1px solid black;
+    border:2px solid green;
 }
 .userinfo{
     border: 1px solid red;
@@ -32,7 +32,7 @@ button{
     border: 2px solid #ddd;
     margin-left: auto;
     margin-right: auto;
-    width: 400px;
+    width: 500px;
     border-radius: 5px;
 }
 #page{
@@ -48,4 +48,12 @@ button{
 }
 #movielist{
     margin-left: 5px;
+}
+select{
+    padding:3px;
+}
+.click-fn{
+    padding: 3px;
+    display: inline-block;
+    border: 1px solid #ddd;
 }

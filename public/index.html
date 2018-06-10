@@ -55,22 +55,23 @@
 				<span="token">Token: </span>
 				<span id="token-display">
                 </span>
-				
-                <div id="click-fn"></div>
-                <button type="button" class="btn btn-primary" onclick="getMovies()">Cheapest Movie</button>
-                <span>
-                <button type="button" class="btn btn-primary" onclick="getMovies('Id')"> Movie by Id</button>
-                Select Id<select id="movielist">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                </select>
-            </span>
+				<br/>
+                <div class="click-fn">
+                    <button id="btncheap" type="button" class="btn btn-primary" onclick="getMovies()">Cheapest Movie</button>
+                </div>
+                <div class="click-fn">               
+                        <button id="btnbyid" type="button" class="btn btn-primary" onclick="getMovies('Id')"> Movie by Id</button>
+                        Select Id<select id="movielist">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                        </select>
+                </div>
             </div>
             <p id="demo"></p>
 

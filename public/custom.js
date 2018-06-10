@@ -22,41 +22,56 @@ auth= function(){
       };
     xhttp.send(JSON.stringify(data));
 }
-
+function ToggleButton(btnId) {
+    if(document.getElementById(btnId).disabled){
+        document.getElementById(btnId).disabled = false;
+    }
+    else {
+        document.getElementById(btnId).disabled = true;
+    }
+}
+function Toggle(){
+    ToggleButton('btncheap');
+    ToggleButton('btnbyid');
+}
 getMovies= function(id){
+    Toggle();
+    var start=performance.now();
+    document.getElementById("list").innerHTML="";
+    document.getElementById("demo").innerHTML="";
+    document.getElementById("loading").innerHTML="loading ...";
+    var xhttp = new XMLHttpRequest();
+    data={token:document.getElementById("token-display").innerHTML}
+    console.log(data);
     let url="movie";
     if(id) {
         var id=document.getElementById("movielist").value;
         document.getElementById("demo").innerHTML="Selected Id =" + id;
         url=url+ "\\"+id
     }
-    document.getElementById("list").innerHTML="";
-    document.getElementById("demo").innerHTML="";
-    var start=performance.now();
-    document.getElementById("loading").innerHTML="loading ...";
-    var xhttp = new XMLHttpRequest();
-    data={token:document.getElementById("token-display").innerHTML}
-    console.log(data);
     xhttp.onreadystatechange = function() {
         if (xhttp.readyState==4 && xhttp.status==200) {
-            document.getElementById("list").style.display="block";
+        Toggle();
+        document.getElementById("list").style.display="block";
             var end=performance.now();
             var timetaken=end-start;
             document.getElementById("loading").innerHTML="Response Time (milli seconds) = "+timetaken;
             document.getElementById("list").innerHTML="Cheapest movie: " +xhttp.responseText;	
         }
         if(xhttp.readyState==4 && xhttp.status==403){
+            Toggle();
             document.getElementById("loading").innerHTML="";
             document.getElementById("loading").innerHTML=JSON.parse(xhttp.responseText).message;
         }
         else if(xhttp.readyState==4 && xhttp.status==500){
+            Toggle();
             document.getElementById("loading").innerHTML="";
             document.getElementById("loading").innerHTML=xhttp.statusText;
         }
     };
     xhttp.open("POST", basURL+url, true);
     xhttp.setRequestHeader("Content-type", 'application/json; charset=UTF-8');
-    xhttp.timeout =6000;
+    xhttp.timeout =4000;
     xhttp.onerror = function () {
         document.getElementById("loading").innerHTML=" Timeout !!!";
       };
