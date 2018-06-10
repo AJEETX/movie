@@ -17,8 +17,8 @@ router.post('/login',function(req,res){
           }
           else{
             var token=tokenCode;
-			      console.log("Login Successful. Token ="+token );			  
-              message="Login Successful";
+              message="Login Successful. Token ="+token;
+              console.log(message);			  
               break;
           }
       }

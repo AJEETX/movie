@@ -73,9 +73,11 @@ getMovies= function(id){
     xhttp.setRequestHeader("Content-type", 'application/json; charset=UTF-8');
     xhttp.timeout =4000;
     xhttp.onerror = function () {
-        document.getElementById("loading").innerHTML=" Timeout !!!";
+            Toggle();
+            document.getElementById("loading").innerHTML=" Error !!!";
       };
     xhttp.ontimeout=function (e) {
+        Toggle();
         document.getElementById("loading").innerHTML=" Timeout !!!";
       };
     xhttp.send(JSON.stringify(data));

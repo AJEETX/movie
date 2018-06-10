@@ -41,7 +41,7 @@ button{
     color: blue;
 }
 #token-display{
-    color: green;
+    visibility: hidden;
 }
 #list{
     display: none;
