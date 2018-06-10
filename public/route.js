@@ -46,7 +46,6 @@ router.use((req, res, next)=>{
           });
         }
         else{
-          req.decoded=tokenCode;
           next();
         }
     }

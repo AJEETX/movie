@@ -2,9 +2,9 @@
   "name": "movies",
   "version": "1.0.0",
   "description": "all about movies",
-  "main": "webjet.js",
+  "main": "server.js",
   "scripts": {
-    "test": "node webjet.js"
+    "test": "node server.js"
   },
   "repository": {
     "type": "git",
