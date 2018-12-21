@@ -1,6 +1,4 @@
-# movie world
-
- ![GitHub release](https://img.shields.io/github/release/ajeetx/movie.svg?style=for-the-badge) ![Maintenance](https://img.shields.io/maintenance/yes/2018.svg?style=for-the-badge)
+# movie world  ![GitHub release](https://img.shields.io/github/release/ajeetx/movie.svg?style=for-the-badge) ![Maintenance](https://img.shields.io/maintenance/yes/2018.svg?style=for-the-badge)
 
 [![Build Status](https://travis-ci.org/AJEETX/movie.svg?branch=master)](https://travis-ci.org/AJEETX/movie) |![GitHub Release Date](https://img.shields.io/github/release-date/ajeetx/movie.svg)| [![.Net Framework](https://img.shields.io/badge/DotNet-4.5-blue.svg?style=plastic)](https://www.microsoft.com/en-au/download/details.aspx?id=30653)| [![nodejs](https://img.shields.io/badge/Node-js-blue.svg?style=plastic)](https://nodejs.org/en/) | ![GitHub language count](https://img.shields.io/github/languages/count/ajeetx/movie.svg) | ![GitHub top language](https://img.shields.io/github/languages/top/ajeetx/movie.svg) |![GitHub repo size in bytes](https://img.shields.io/github/repo-size/ajeetx/movie.svg) 
 | ---          | ---        | ---      | ---  | ---        | --- | --- | 
